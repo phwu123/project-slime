@@ -1,0 +1,124 @@
+Character Skills T1
+
+Global Skills
+  - Sit
+    - passive regeneration of Hp, Mana, Stamina x2
+    - 0.5s animation time
+    - canceled upon taking direct damage
+  - First Aid
+    - cost Stamina and Mana
+    - heal 2% max Hp per use
+    - 0.5s cast time
+
+Fighter Skills
+  - Weapon Skills set 1-2, Basic
+  - Utility
+    - Active Regeneration
+      - increase healing from all outside sources and natural regeneration by 100%
+      - lasts 10s
+      - cd 60s
+      - canceled when damage taken
+      - windup time of 1s
+  - Passive
+    - Heavy Armor Mastery
+      - allows wearing of heavy armor
+
+Rogue Skills
+  - Weapon Skills set 1-2, Basic
+  - Utility
+    - Swiftness
+      - increase Movespd + 30%
+      - increase Atksdp + 30%
+      - lasts 10s
+      - cd 60s
+  - Passive
+    - Medium Armor Mastery
+      - allows wearing of medium armor
+
+Elementalist Skills
+  - Magic Skills set 1-2, specific
+  - Magic Skill Specifics
+    - Fire
+      - Quick 1 - Fireball
+        - Single Target
+      - Quick 2 - Immolate
+        - Single Target
+        - adds 5 stacks of Scald
+      - Slow 1 - Fireblast
+        - AoE
+    - Ice
+      - Quick 1 - Ice Spear
+        - Single Target
+      - Quick 2 - Cone of Cold
+        - AoE
+        - adds 5 stacks of Frost
+      - Slow 1 - Frost Nova
+        - AoE
+    - Wind
+      - Quick 1 - Lightning Bolt
+        - Single Target
+      - Quick 2 - Lightning Shock
+        - Single Target
+        - adds 5 stacks of Static
+      - Slow 1 - Thunderstorm
+        - AoE
+    - Earth
+      - Quick 1 - Earth Spike
+        - Single Target
+      - Quick 2 - Rock Throw
+        - Single Target
+        - adds 5 stacks of Wound
+      - Slow 1 - Quake
+        - AoE
+    - Attunement
+      - change magic skills to elemental type
+      - all spell charges are refreshed
+    - Elemental Focus
+      - Quick 1 skills add 1 stack of effect
+      - Slow 1 skills add 3 stacks of effect
+      - lasts 20s
+      - cooldown 60s
+      - lost when changing attunement
+  - Utility
+    - Magical Conversion
+      - Toggle
+      - apply Magic Atk stat when using physical skills
+      - consumes Mana per attack
+    - Focus
+      - next spell will take 50% longer to cast
+      - taking direct damage will not interrupt next spell
+      - cooldown 60s
+  - Passive
+    - Light Armor Mastery
+      - allows wearing of light armor
+    - Mental Concentration
+      - Mana regen + 100% while not casting abilities
+      - Mana regen + 100% while not casting abilities and not moving
+
+Cleric Skills
+  - Weapon Skills set 1, Basic
+  - Magic Skills set 1-2, Specific
+  - Magic Skill Specifics
+    - Holy
+      - Quick 1 - Heal    
+        - Single Target
+        - Restores Hp of non Undead
+        - Damages Undead
+      - Slow 1 - Stoneskin
+        - Single Target
+        - Adds shield effect to target
+      - Quick 2 - Cure
+        - Single Target
+        - Cure 1 basic physical and magical status ailments
+    - Utility
+      - Increase Recovery
+        - Single Target
+        - Mana/Stamina regen +20%
+        - lasts 20s
+        - cooldown 60s
+      - Prayer
+        - recover all spell charges
+        - cooldown 60s
+    - Passive
+      - Light Armor Mastery
+        - allow wearing of light armor
