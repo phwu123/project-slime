@@ -1,6 +1,7 @@
 .class-list {
   border: 1px solid white;
   border-radius: 4px;
-  height: 200px;
-  width: 200px;
+  padding: 20px;
+  display: grid;
+  grid-row-gap: 20px;
 }
