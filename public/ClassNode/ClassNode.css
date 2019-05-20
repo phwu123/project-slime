@@ -7,10 +7,6 @@
   transition: border-color 0.5s;
 }
 
-:host(:hover) {
-  border-color: white;
-}
-
-:host([selected]) {
+:host([selected], :hover) {
   border-color: white;
 }
