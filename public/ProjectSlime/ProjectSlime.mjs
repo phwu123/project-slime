@@ -7,6 +7,7 @@ customElements.define('project-slime',
       super();
       this.attachShadow({ mode: 'open' })
       this.shadowRoot.innerHTML = projectSlimeTemplate
+
       // from the db
       this.savedCharacter = {
         classesChosen: {
@@ -14,7 +15,7 @@ customElements.define('project-slime',
             Fighter: false,
             Rogue: false,
             Elementalist: true,
-            Cleric: true
+            Cleric: false
           },
           t2: {}
         }
@@ -24,6 +25,11 @@ customElements.define('project-slime',
     connectedCallback () {
       this.initClassList()
       this.initClassDetails()
+      this.shadowRoot.addEventListener('class-view', this.changeClassView)
+    }
+
+    disconnectedCallback () {
+      this.shadowRoot.removeEventListener('class-view', this.changeClassView)
     }
 
     initClassList() {
@@ -36,11 +42,11 @@ customElements.define('project-slime',
     initClassDetails() {
       const classDetails = document.createElement('class-details')
       const className = this.checkIfInitialClass()
-      classDetails.setAttribute('name', className)
       this.shadowRoot.appendChild(classDetails)
+      classDetails.setAttribute('name', className)
     }
 
-    checkIfInitialClass () {
+    checkIfInitialClass() {
       let initialClass
       for (let name in this.savedCharacter.classesChosen.t1) {
         if (this.savedCharacter.classesChosen.t1[name]) {
@@ -50,6 +56,12 @@ customElements.define('project-slime',
       }
       return initialClass || 'Fighter'
     }
+
+    changeClassView(e) {
+      console.log('this ', this.children[1])
+      this.children[2].setAttribute('name', e.detail)
+    }
   }
+
 
 )

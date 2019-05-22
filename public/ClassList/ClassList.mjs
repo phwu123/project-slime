@@ -8,11 +8,13 @@ customElements.define('class-list',
       super();
       this.attachShadow({ mode: 'open' });
       this.shadowRoot.innerHTML = classListTemplate;
-      this.classesChosen = {}
+      this.selectClass = this.selectClass.bind(this)
+
+      this.classesChosen = {};
     }
 
     static get observedAttributes() {
-      return ['classesFromSaved']
+      return ['classesFromSaved'];
     }
 
     connectedCallback() {
@@ -36,24 +38,45 @@ customElements.define('class-list',
       }
     }
 
+    checkClassChosen (name) {
+      for (let tier in this.classesChosen) {
+        if (this.classesChosen[tier].hasOwnProperty(name)) {
+          return this.classesChosen[tier][name]
+        }
+        else
+          continue
+      }
+    }
+
     createClassNode(name, selected) {
       const node = document.createElement('class-node');
       node.setAttribute('name', name);
-      if (selected) node.toggleAttribute('selected')
+      if (selected)
+        node.toggleAttribute('selected')
       node.addEventListener('click', this.selectClass)
       this.shadowRoot.appendChild(node);
     }
 
     selectClass(e) {
-      const classList = this.parentNode.host
-      const className = e.target.getAttribute('name')
-      const isSelected = e.target.hasAttribute('selected')
-      const classSelected = {
-        class: className,
-        isSelected
+      const name = e.target.getAttribute('name');
+      this.emitViewClass(name)
+      for (let i = 1; i < this.shadowRoot.children.length; ++i) {
+        const node = this.shadowRoot.children[i]
+        const targetName = node.getAttribute('name')
+        if (targetName !== name && !this.checkClassChosen(targetName)) {
+          node.toggleAttribute('selected', false)
+        } else {
+          node.toggleAttribute('selected', true)
+        }
       }
-      classList.setAttribute('classSelected', classSelected)
-     // e.target.getAttribute('name')
+    }
+
+    emitViewClass(name) {
+      const event = new CustomEvent('class-view', {
+        detail: name,
+        bubbles: true
+      })
+      this.dispatchEvent(event)
     }
   }
 )

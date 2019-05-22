@@ -11,11 +11,21 @@ customElements.define('class-details',
     constructor() {
       super();
       this.attachShadow({ mode: 'open' });
-      this.shadowRoot.innerHTML = classDetailsTemplate;
+      this.shadowRoot.innerHTML = classDetailsTemplate; 
     }
 
     static get observedAttributes () {
-      return ['selected']
+      return ['selected', 'name']
+    }
+
+    attributeChangedCallback(name, oldVal, newVal) {
+      switch (name) {
+        case 'name':
+          const className = this.getAttribute('name');
+          const header = this.shadowRoot.children[1];
+            header.children[1].textContent = className;
+          break
+      }
     }
 
     connectedCallback () {

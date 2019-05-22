@@ -20,11 +20,11 @@ customElements.define('class-node',
     }
 
     connectedCallback() {
-      this.addEventListener('click', this.selectClass);
+  //    this.addEventListener('click', this.selectClass);
     }
 
     disconnectedCallback() {
-      this.removeEventListener('click', this.selectClass);
+  //    this.removeEventListener('click', this.selectClass);
     }
 
     selectClass() {
