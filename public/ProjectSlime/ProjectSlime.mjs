@@ -8,6 +8,8 @@ customElements.define('project-slime',
       this.attachShadow({ mode: 'open' })
       this.shadowRoot.innerHTML = projectSlimeTemplate
 
+      this.remainingClassPoints = 0
+      this.remainingTalentPoints = 45
       // from the db
       this.savedCharacter = {
         classesChosen: {
@@ -18,13 +20,15 @@ customElements.define('project-slime',
             Cleric: false
           },
           t2: {}
-        }
+        },
+        classSkills: {}
       }
     }
 
     connectedCallback () {
       this.initClassList()
-      this.initClassDetails()
+      const intialClassView = this.checkInitialClass()
+      this.initClassDetails(initialClassView)
       this.shadowRoot.addEventListener('class-view', this.changeClassView)
     }
 
@@ -39,14 +43,19 @@ customElements.define('project-slime',
       this.shadowRoot.appendChild(classList)
     }
 
-    initClassDetails() {
-      const classDetails = document.createElement('class-details')
-      const className = this.checkIfInitialClass()
-      this.shadowRoot.appendChild(classDetails)
-      classDetails.setAttribute('name', className)
+    initClassDetails(name) {
+      for (const tier in this.savedCharacter.classesChosen) {
+        for (const className in this.savedCharacter.classesChosen[tier]) {
+          const classDetailsNode = document.createElement(`${className}-details`)
+          if (name === className)
+            classDetailsNode.toggleAttribute('viewing')
+          this.shadowRoot.appendChild(classDetailsNode)
+        }
+      }
+      
     }
 
-    checkIfInitialClass() {
+    checkInitialClass() {
       let initialClass
       for (let name in this.savedCharacter.classesChosen.t1) {
         if (this.savedCharacter.classesChosen.t1[name]) {
@@ -58,8 +67,8 @@ customElements.define('project-slime',
     }
 
     changeClassView(e) {
-      console.log('this ', this.children[1])
-      this.children[2].setAttribute('name', e.detail)
+      const className = e.detail
+  //    this.children[2].setAttribute('name', e.detail)
     }
   }
 

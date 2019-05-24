@@ -1,0 +1,12 @@
+
+:host {
+  opacity: 0.5;
+}
+
+:host([selected]) {
+  opacity: 1;
+}
+
+:host(:not[viewing]) {
+  display: none;
+}

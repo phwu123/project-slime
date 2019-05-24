@@ -11,7 +11,7 @@
   transition: opacity 0.5s;
 }
 
-header {
+article {
   display: grid;
   grid-template-columns: auto auto;
   grid-column-gap: 50px;
@@ -20,4 +20,16 @@ header {
 
 :host([selected]) {
   opacity: 1;
+}
+
+.add-class {
+  width: 20px;
+  height: 20px;
+  border: 1px solid white;
+  cursor: pointer;
+}
+
+.add-class:hover {
+  opacity: 1;
+  background-color: white;
 }

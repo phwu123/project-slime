@@ -1,9 +1,18 @@
 const classDetailsTemplate = `
+<template
 <link rel="stylesheet" type="text/css" href="./ClassDetails/ClassDetails.css" />
-<header>
-  <class-node selected></class-node>
-  <p></p>
-</header>
+<article>
+  <slot name="class-circle"></slot>
+  <slot name="class-name"></slot>
+</article>
+<slot name="utility-skills"></slot>
+<slot name="weapon-skills"></slot>
+<slot name="magic-skills"></slot>
+<article>
+  <span class="add-button"></span>
+  <p>Add Class</p>
+</article>
+</template>
 `
 
 customElements.define('class-details', 
