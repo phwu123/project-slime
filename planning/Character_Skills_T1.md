@@ -23,7 +23,7 @@ Fighter Skills
     - Heavy Armor Mastery
       - allows wearing of heavy armor
 
-Rogue Skills
+Scout Skills
   - Weapon Skills set 1-2, Basic
   - Utility
     - Swiftness

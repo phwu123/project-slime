@@ -10,17 +10,27 @@ customElements.define('class-list',
       this.shadowRoot.innerHTML = classListTemplate;
       this.selectClass = this.selectClass.bind(this)
 
-      this.classesChosen = {};
+      this.classesChosen = null
     }
 
+
     static get observedAttributes() {
-      return ['classesFromSaved'];
+      return ['activate-class', 'classes-chosen'];
     }
 
     connectedCallback() {
-      const parsedClasses = JSON.parse(this.getAttribute('classesFromSaved'))
-      this.classesChosen = parsedClasses
-      this.setClassNodes()
+      this.setClassNodes();
+    }
+
+    attributeChangedCallback (name, oldVal, newVal) {
+      switch (name) {
+        case 'activate-class':
+          this.classesChosen.t1[newVal] = true
+          break;
+        case 'classes-chosen':
+          this.classesChosen = JSON.parse(newVal)
+          break
+      }
     }
 
     setClassNodes() {

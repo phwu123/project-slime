@@ -7,58 +7,59 @@ customElements.define('project-slime',
       super();
       this.attachShadow({ mode: 'open' })
       this.shadowRoot.innerHTML = projectSlimeTemplate
-
+      this.activateClass = this.activateClass.bind(this)
+      
       this.remainingClassPoints = 0
       this.remainingTalentPoints = 45
-      // from the db
-      this.savedCharacter = {
-        classesChosen: {
-          t1: {
-            Fighter: false,
-            Rogue: false,
-            Elementalist: true,
-            Cleric: false
-          },
-          t2: {}
+      this.classesChosen = {
+        t1: {
+          Fighter: false,
+          Scout: false,
+          Elementalist: false,
+          Cleric: false
         },
-        classSkills: {}
+        t2: {}
       }
+      this.classSkills = {}
+      // from the db
+      this.savedCharacters = []
     }
 
     connectedCallback () {
       this.initClassList()
-      const intialClassView = this.checkInitialClass()
-      this.initClassDetails(initialClassView)
-      this.shadowRoot.addEventListener('class-view', this.changeClassView)
+      const initialClassView = this.checkInitialClass()
+      this.initClassPreview(initialClassView)
+      this.addEventListeners()
     }
 
     disconnectedCallback () {
       this.shadowRoot.removeEventListener('class-view', this.changeClassView)
     }
 
-    initClassList() {
+    addEventListeners () {
+      this.shadowRoot.addEventListener('class-view', this.changeClassView)
+      this.shadowRoot.addEventListener('activate-class', this.activateClass)
+    }
+
+    initClassList () {
       const classList = document.createElement('class-list')
-      const classesFromSaved = JSON.stringify(this.savedCharacter.classesChosen)
-      classList.setAttribute('classesFromSaved', classesFromSaved)
+      const classesChosen = JSON.stringify(this.classesChosen)
+      classList.setAttribute('classes-chosen', classesChosen)
       this.shadowRoot.appendChild(classList)
     }
 
-    initClassDetails(name) {
-      for (const tier in this.savedCharacter.classesChosen) {
-        for (const className in this.savedCharacter.classesChosen[tier]) {
-          const classDetailsNode = document.createElement(`${className}-details`)
-          if (name === className)
-            classDetailsNode.toggleAttribute('viewing')
-          this.shadowRoot.appendChild(classDetailsNode)
-        }
-      }
-      
+    initClassPreview (name) {
+      const classPreview = document.createElement('class-preview')
+      classPreview.setAttribute('name', name)
+      // if (this.isUnlocked)
+        classPreview.toggleAttribute('unlocked')
+      this.shadowRoot.appendChild(classPreview)
     }
 
-    checkInitialClass() {
+    checkInitialClass () {
       let initialClass
-      for (let name in this.savedCharacter.classesChosen.t1) {
-        if (this.savedCharacter.classesChosen.t1[name]) {
+      for (let name in this.classesChosen.t1) {
+        if (this.classesChosen.t1[name]) {
           initialClass = name
           break
         }
@@ -66,11 +67,15 @@ customElements.define('project-slime',
       return initialClass || 'Fighter'
     }
 
-    changeClassView(e) {
+    changeClassView (e) {
       const className = e.detail
-  //    this.children[2].setAttribute('name', e.detail)
+      this.children[2].setAttribute('name', className)
+    }
+
+    activateClass (e) {
+      const className = e.detail
+      this.classesChosen.t1[className] = true
+      this.shadowRoot.children[1].setAttribute('activate-class', className)
     }
   }
-
-
 )
