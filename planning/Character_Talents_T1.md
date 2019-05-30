@@ -6,11 +6,11 @@ Weapon Skill Levelup bonus
 
 Fighter Talents- 17
   - Weapon Skills- sword, spear, axe
-    - Weapon openner 1
+    - Weapon opener 1
       - decrease TP cost
       - increase Atkspd
       - add gap closer
-    - Weapon openner 2
+    - Weapon opener 2
       - increase final chain bonus multiplier
       - add gap closer
     - Weapon chain 1
@@ -48,13 +48,13 @@ Fighter Bonuses
       - Weapon skill bonuses applicable on all fighter class weapons
 
 
-Rogue Talents - 19
+Scout Talents - 19
   - Weapon Skills- bow, dagger
-    - Weapon openner 1
+    - Weapon opener 1
       - decrease TP cost
       - increase Atkspd
       - improved gap closer range (dagger) / increase range of skills in current combo (bow)
-    - Weapon openner 2
+    - Weapon opener 2
       - increase final chain bonus multiplier
       - improved gap closer range (dagger) / increase range of skills in current combo (bow)
     - Weapon chain 1
@@ -80,7 +80,7 @@ Rogue Talents - 19
       - Atkspd +5%
       - Stamina/Mana regen +2.5%
 
-Rogue Bonuses
+Scout Bonuses
   - Active Bonus
     - Swiftness duration + 20%
     - TP regen +10%
@@ -173,7 +173,7 @@ Elementalist Bonuses
 
 Cleric Talents
   - Weapon Skills - staff, wand, mace
-    - Weapon Openner 1
+    - Weapon Opener 1
       - decrease TP cost
       - increase Atkspd
       - increase chain bonus

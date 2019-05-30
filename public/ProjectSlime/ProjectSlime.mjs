@@ -20,7 +20,186 @@ customElements.define('project-slime',
         },
         t2: {}
       }
-      this.classSkills = {}
+      this.classSkills = {
+        Fighter: {
+          w1: {
+            'wo1-1': false,
+            'wo1-2': false,
+            'wo1-3': false,
+            'wc1-1': false,
+            'wc1-2': false,
+            'wf1-1': false,
+            'wf1-2': false,
+          },
+          w2: {
+            'wo2-1': false,
+            'wo2-2': false,
+            'wc2-1': false,
+            'wc2-2': false,
+            'wf2-1': false,
+            'wf2-2': false,
+            'wf2-3': false
+          },
+          u1: {
+            'u1-1': false,
+            'u1-2': false
+          },
+          p1: {
+            'p1-1': false,
+            'p1-2': false,
+            'p1-3': false
+          }
+        },
+        Scout: {
+          w1: {
+            'wo1-1': false,
+            'wo1-2': false,
+            'wo1-3': false,
+            'wc1-1': false,
+            'wc1-2': false,
+            'wf1-1': false,
+            'wf1-2': false,
+          },
+          w2: {
+            'wo2-1': false,
+            'wo2-2': false,
+            'wc2-1': false,
+            'wc2-2': false,
+            'wf2-1': false,
+            'wf2-2': false,
+            'wf2-3': false
+          },
+          u1: {
+            'u1-1': false,
+            'u1-2': false
+          },
+          p1: {
+            'p1-1': false,
+            'p1-2': false,
+            'p1-3': false
+          }
+        },
+        Elementalist: {
+          'm-fire1': {
+            'm-fire-q1-1': false,
+            'm-fire-q1-2': false,
+            'm-fire-q1-3': false,
+            'm-fire-q1-4': false,
+            'm-fire-q1-5': false,
+            'm-fire-s1-1': false,
+            'm-fire-s1-2': false,
+            'm-fire-s1-3': false,
+            'm-fire-s1-4': false
+          },
+          'm-fire2': {
+            'm-fire-q2-1': false,
+            'm-fire-q2-2': false,
+            'm-fire-q2-3': false,
+            'm-fire-q2-4': false
+          },
+          'm-ice1': {
+            'm-ice-q1-1': false,
+            'm-ice-q1-2': false,
+            'm-ice-q1-3': false,
+            'm-ice-q1-4': false,
+            'm-ice-q1-5': false,
+            'm-ice-s1-1': false,
+            'm-ice-s1-2': false,
+            'm-ice-s1-3': false,
+            'm-ice-s1-4': false
+          },
+          'm-ice2': {
+            'm-ice-q2-1': false,
+            'm-ice-q2-2': false,
+            'm-ice-q2-3': false,
+            'm-ice-q2-4': false
+          },
+          'm-wind1': {
+            'm-wind-q1-1': false,
+            'm-wind-q1-2': false,
+            'm-wind-q1-3': false,
+            'm-wind-q1-4': false,
+            'm-wind-q1-5': false,
+            'm-wind-s1-1': false,
+            'm-wind-s1-2': false,
+            'm-wind-s1-3': false,
+            'm-wind-s1-4': false
+          },
+          'm-wind2': {
+            'm-wind-q2-1': false,
+            'm-wind-q2-2': false,
+            'm-wind-q2-3': false,
+            'm-wind-q2-4': false
+          },
+          'm-earth1': {
+            'm-earth-q1-1': false,
+            'm-earth-q1-2': false,
+            'm-earth-q1-3': false,
+            'm-earth-q1-4': false,
+            'm-earth-q1-5': false,
+            'm-earth-s1-1': false,
+            'm-earth-s1-2': false,
+            'm-earth-s1-3': false,
+            'm-earth-s1-4': false
+          },
+          'm-earth2': {
+            'm-earth-q2-1': false,
+            'm-earth-q2-2': false,
+            'm-earth-q2-3': false,
+            'm-earth-q2-4': false
+          },
+          u1: {
+            'u1-1': false,
+            'u1-2': false
+          },
+          u2: {
+            'u2-1': false,
+            'u2-2': false
+          },
+          p1: {
+            'p1-1': false,
+            'p1-2': false
+          },
+          p2: {
+            'p2-1': false,
+            'p2-2': false
+          }
+        },
+        Cleric: {
+          w1: {
+            'wo1-1': false,
+            'wo1-2': false,
+            'wo1-3': false,
+            'wc1-1': false,
+            'wc1-2': false,
+            'wf1-1': false,
+            'wf1-2': false,
+            'wf1-3': false
+          },
+          'm-holy1': {
+            'm-holy-q1-1': false,
+            'm-holy-q1-2': false,
+            'm-holy-s1-1': false,
+            'm-holy-s1-2': false,
+          },
+          'm-holy2': {
+            'm-holy-q2-1': false,
+            'm-holy-q2-2': false
+          },
+          u1: {
+            'u1-1': false,
+            'u1-2': false,
+          },
+          u2: {
+            'u2-1': false,
+            'u2-2': false
+          },
+          p1: {
+            'p1-1': false,
+            'p1-2': false
+          }
+        }
+      }
       // from the db
       this.savedCharacters = []
     }
