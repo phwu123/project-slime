@@ -11,11 +11,11 @@ customElements.define('class-summary',
     }
 
     static get observedAttributes () {
-      return ['skills'];
+      return ['classSkills'];
     }
 
     get skills () {
-      return this.getAttribute('skills');
+      return this.getAttribute('classSkills');
     }
 
     connectedCallback () {
@@ -25,6 +25,12 @@ customElements.define('class-summary',
     attributeChangedCallback (name, oldVal, newVal) {
       switch (name) {
 
+      }
+    }
+
+    loopThroughSkills () {
+      for (let type in this.classSkills) {
+        
       }
     }
   }
