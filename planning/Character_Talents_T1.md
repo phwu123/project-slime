@@ -138,8 +138,10 @@ Elementalist Talents - 49
   - Utility
     - Magical Conversion
       - Increase damage
+      - decrease mana cost
     - Focus
       - decrease cooldown
+      - bonus damage for 10s
   - Passive
     - Light Armor Mastery
       - decrease damage taken
@@ -179,6 +181,7 @@ Cleric Talents
       - increase chain bonus
     - Weapon Chain 1
       - increase finisher chain bonus
+      - increase Atkspd
     - Weapon Finisher 1
       - increase base damage
       - increase chain bonus
