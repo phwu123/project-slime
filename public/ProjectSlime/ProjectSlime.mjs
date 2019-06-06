@@ -23,60 +23,84 @@ customElements.define('project-slime',
       this.classSkills = {
         Fighter: {
           w1: {
-            'wo1-1': false,
-            'wo1-2': false,
-            'wo1-3': false,
-            'wc1-1': false,
-            'wc1-2': false,
-            'wf1-1': false,
-            'wf1-2': false,
+            wo1: {
+              1: false,
+              2: false,
+              3: false
+            },
+            wc1: {
+              1: false,
+              2: false
+            },
+            wf1: {
+              1: false,
+              2: false
+            },
           },
           w2: {
-            'wo2-1': false,
-            'wo2-2': false,
-            'wc2-1': false,
-            'wc2-2': false,
-            'wf2-1': false,
-            'wf2-2': false,
-            'wf2-3': false
+            wo2: {
+              1: false,
+              2: false
+            },
+            wc2: {
+              1: false,
+              2: false
+            },
+            wf2: {
+              1: false,
+              2: false,
+              3: false
+            },
           },
           u1: {
-            'u1-1': false,
-            'u1-2': false
+            1: false,
+            2: false
           },
           p1: {
-            'p1-1': false,
-            'p1-2': false,
-            'p1-3': false
+            1: false,
+            2: false,
+            3: false
           }
         },
         Scout: {
           w1: {
-            'wo1-1': false,
-            'wo1-2': false,
-            'wo1-3': false,
-            'wc1-1': false,
-            'wc1-2': false,
-            'wf1-1': false,
-            'wf1-2': false,
+            wo1: {
+              1: false,
+              2: false,
+              3: false
+            },
+            wc1: {
+              1: false,
+              2: false
+            },
+            wf1: {
+              1: false,
+              2: false
+            }
           },
           w2: {
-            'wo2-1': false,
-            'wo2-2': false,
-            'wc2-1': false,
-            'wc2-2': false,
-            'wf2-1': false,
-            'wf2-2': false,
-            'wf2-3': false
+            wo2: {
+              1: false,
+              2: false
+            },
+            wc2: {
+              1: false,
+              2: false
+            },
+            wf2: {
+              1: false,
+              2: false,
+              3: false
+            }
           },
           u1: {
-            'u1-1': false,
-            'u1-2': false
+            1: false,
+            2: false
           },
           p1: {
-            'p1-1': false,
-            'p1-2': false,
-            'p1-3': false
+            1: false,
+            2: false,
+            3: false
           }
         },
         Elementalist: {
