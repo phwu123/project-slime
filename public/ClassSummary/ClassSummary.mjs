@@ -1,17 +1,18 @@
 const classSummaryTemplate = `
   <link rel="stylesheet" type="text/css" href="./ClassSummary/ClassSummary.css" />
+  <header>Summary</header>
 `
 
 customElements.define('class-summary',
   class classSummary extends HTMLElement {
     constructor() {
       super();
-      this.attachShadow({ mode: 'open '});
+      this.attachShadow({ mode: 'open' });
       this.shadowRoot.innerHTML = classSummaryTemplate;
     }
 
     static get observedAttributes () {
-      return ['classSkills'];
+      return ['classSkills', 'name'];
     }
 
     get skills () {

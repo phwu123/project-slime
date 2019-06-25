@@ -1,7 +1,7 @@
 const projectSlimeTemplate = `
   <link rel="stylesheet" type="text/css" href="./ProjectSlime/ProjectSlime.css" />
-  `
-import { classesChosen, classSkills } from "../DummyData/DummyData.mjs"
+`
+import { classesChosen, classSkills } from '../DummyData/DummyData.mjs'
 customElements.define('project-slime', 
   class projectSlime extends HTMLElement {
     constructor() {
@@ -22,6 +22,7 @@ customElements.define('project-slime',
       this.initClassList()
       const initialClassView = this.checkInitialClass()
       this.initClassPreview(initialClassView)
+      this.initClassSummaries()
       this.addEventListeners()
     }
 
@@ -49,6 +50,19 @@ customElements.define('project-slime',
       this.shadowRoot.appendChild(classPreview)
     }
 
+    initClassSummaries () {
+      // for (let classType in this.classesChosen.t1) {
+      //   const classSummary = document.createElement(`${this.classesChosen.t1[classType].toLowerCase()}-summary`)
+      //   if (this.classesChosen.t1[classSummary])
+      //     classSummary.toggleAttribute('active', true)
+      //   this.shadowRoot.appendChild(classSummary)
+      // }
+      const classSummary = document.createElement('fighter-summary')
+        if (this.classesChosen.t1.Fighter)
+          classSummary.toggleAttribute('active', true)
+        this.shadowRoot.appendChild(classSummary)
+    }
+
     checkInitialClass () {
       let initialClass
       for (let name in this.classesChosen.t1) {
@@ -69,6 +83,8 @@ customElements.define('project-slime',
       const className = e.detail
       this.classesChosen.t1[className] = true
       this.shadowRoot.children[1].setAttribute('activate-class', className)
+      // console.log('this ', document.getElementsByTagName('fighter-summary'))
+      // this.shadowRoot.getElementsByTagName(`${className.toLowerCase()}-summary`)[0].toggleAttribute('active', true)
     }
   }
 )
