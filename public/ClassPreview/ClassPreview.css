@@ -25,6 +25,10 @@
   opacity: 1;
 }
 
+:host([chosen]) {
+  display: none;
+}
+
 button {
   background-color: black;
   color: white;

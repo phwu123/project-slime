@@ -12,6 +12,10 @@ customElements.define('fighter-summary',
       this.shadowRoot.innerHTML = fighterSummaryTemplate
     }
 
+    static getObservedAttributes () {
+      return ['chosen']
+    }
+
     connectedCallback () {
 
     }

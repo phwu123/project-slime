@@ -15,7 +15,7 @@ customElements.define('class-list',
 
 
     static get observedAttributes() {
-      return ['activate-class', 'classes-chosen'];
+      return ['activate-class', 'classes-chosen', 'chosen'];
     }
 
     connectedCallback() {

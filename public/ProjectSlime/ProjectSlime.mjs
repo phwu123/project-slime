@@ -9,6 +9,7 @@ customElements.define('project-slime',
       this.attachShadow({ mode: 'open' })
       this.shadowRoot.innerHTML = projectSlimeTemplate
       this.activateClass = this.activateClass.bind(this)
+      this.changeClassView = this.changeClassView.bind(this)
       
       this.remainingClassPoints = 0
       this.remainingTalentPoints = 45
@@ -76,15 +77,31 @@ customElements.define('project-slime',
 
     changeClassView (e) {
       const className = e.detail
-      this.children[2].setAttribute('name', className)
+      const classList = this.shadowRoot.children[2]
+      classList.setAttribute('name', className)
+      if (this.classesChosen.t1[className]) {
+        // if chosen show summary
+        classList.toggleAttribute('chosen', true)
+      } else {
+        // if not chosen show preview
+        classList.toggleAttribute('chosen', false)
+      }
     }
 
     activateClass (e) {
       const className = e.detail
       this.classesChosen.t1[className] = true
       this.shadowRoot.children[1].setAttribute('activate-class', className)
+      const classList = this.shadowRoot.children[2]
+      classList.toggleAttribute('chosen', true)
+      this.showClassSummary(className)
       // console.log('this ', document.getElementsByTagName('fighter-summary'))
       // this.shadowRoot.getElementsByTagName(`${className.toLowerCase()}-summary`)[0].toggleAttribute('active', true)
+    }
+
+    showClassSummary (name) {
+      const classSummary = this.shadowRoot.querySelector(`${name.toLowerCase()}-summary`)
+      classSummary.toggleAttribute('chosen', true)
     }
   }
 )

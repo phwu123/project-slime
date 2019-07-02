@@ -32,7 +32,7 @@ customElements.define('class-preview',
     }
 
     static get observedAttributes () {
-      return ['name', 'unlocked']
+      return ['name', 'unlocked', 'chosen']
     }
 
     connectedCallback () {
